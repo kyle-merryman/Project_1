@@ -11,21 +11,43 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fullcalendar/3.9.0/fullcalendar.min.css">
     <link href='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.css' rel='stylesheet' />
     
-    <!-- THIS IS OUR CUSTOMIZABLE CSS -->
+    <!-- THIS IS OUR CUSTOMIZABLE CSS AND BOOTSTRAP -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link rel="stylesheet" href="assets/css/style.css">
 </head>
 <body>
     <div class="container">
         <!-- THIS IS OUR NAVIGATION -->
         <nav class="navigation">
-            this is our nav
+            <!-- Image and text -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="images/banner.png" width="150" height="30" class="d-inline-block align-top" alt="">
+                </a>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Team Info</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Game Calendar</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Weather</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </nav>
 
         <!-- THIS IS OUR BODY -->
         <div class="body">
             <!-- THIS IS OUR CALENDER -->
             <div class="body-calendar">
-                    this is our calendar
+                <div id="calendar"></div>
             </div>
             <!-- THIS IS OUR RIGHT SIDE OF BODY -->
             <div class="body-right">
@@ -50,5 +72,66 @@
 
     <!-- THIS IS OUR CUSTOMIZABLE JS -->
     <script src="assets/javascript/script.js"></script>
+
+    <!-- <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyB38HE7Q8jr7CmRQolpUM87wuoXE1jZBi0",
+            authDomain: "forecast-test-30b06.firebaseapp.com",
+            databaseURL: "https://forecast-test-30b06.firebaseio.com",
+            projectId: "forecast-test-30b06",
+            storageBucket: "",
+            messagingSenderId: "218000094980"
+        };
+        firebase.initializeApp(config);
+    </script> -->
+
+    <script>
+    $( document ).ready(function() {   
+        $(function() {
+
+        // page is now ready, initialize the calendar...
+
+            $('#calendar').fullCalendar({
+            // put your options and callbacks here
+
+                events: [
+          {
+            title  : 'event1',
+            start  : '2018-10-01',
+            url    : ''
+            
+          },
+          {
+            title  : 'event2',
+            start  : '2018-10-05',
+            end    : '2018-10-07'
+          },
+          {
+            title  : 'event3',
+            start  : '2018-01-09T12:30:00',
+            allDay : false // will make the time show
+          }
+        ],
+        
+                // events: {
+                //     url: '/myfeed.php',
+                //     type: 'POST',
+                //     data: {
+                //     custom_param1: 'something',
+                //     custom_param2: 'somethingelse'
+                //     },
+                //     error: function() {
+                //     alert('there was an error while fetching events!');
+                //     },
+                //     color: 'yellow',   // a non-ajax option
+                //     textColor: 'black' // a non-ajax option
+                // }
+            })
+        });
+    });
+    </script>
+
 </body>
 </html>
