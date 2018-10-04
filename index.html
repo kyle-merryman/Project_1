@@ -24,34 +24,36 @@
 </head>
 
 <body>
-    <div class="custom-container">
-        <!-- THIS IS OUR NAVIGATION -->
-        <nav class="navigation">
-            <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link navbar-brand " href="#">
-                        <img class="custom-brand" src="images/banner.png" alt="">
-                    </a>
-                </li>
-                <li></li>
-            </ul>
-        </nav>
+    <!-- THIS IS OUR NAVIGATION -->
+    <nav class="navbar navbar-dark bg-dark">
+        <img src="images/banner.png" alt="Banner" />
+        <form class="form-inline">
+            <input class="form-control-lg mr-sm-2" id="zipInput" type="search" placeholder="Enter Zipcode" aria-label="Search">
+            <button class="btn-lg btn-secondary my-2 my-sm-0" id="zipSearch" type="submit">Submit</button>
+        </form>
+    </nav>
 
-        <!-- THIS IS OUR BODY -->
-        <div class="body">
+    <!-- THIS IS OUR BODY -->
+    <div class="container-fluid">
+        <div class="row">
             <!-- THIS IS OUR CALENDER -->
-            <div class="body-calendar">
+            <div class="col-lg-8 body-calendar">
                 <div id='calendar'></div>
             </div>
             <!-- THIS IS OUR RIGHT SIDE OF BODY -->
-            <div class="body-right">
+            <div class="col-lg-4">
                 <!-- THIS IS THE MAP ON OUR RIGHT SIDE -->
                 <div class="body-right-map">
                     this is our map
                 </div>
                 <!-- THIS IS THE WEATHER ON OUR RIGHT SIDE -->
                 <div class="body-right-weather">
-                    this is our weather test
+                    <div class="city"></div>
+                    <div class="icon"></div>
+                    <div class="weather"></div>
+                    <div class="temp"></div>
+                    <div class="humidity"></div>
+                    <div class="wind"></div>
                 </div>
             </div>
         </div>
