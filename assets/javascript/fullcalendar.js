@@ -26,5 +26,5 @@ $(document).ready($(function() {
 };
 firebase.initializeApp(config);
 
-$data = array();
+// $data = array();
 
