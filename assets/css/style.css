@@ -14,8 +14,9 @@ body {
 }
 
 .custom-brand {
-  width: 200px;
-  height: auto;
+
+    width: 200px;
+    height: auto;
 }
 
 .body-right-weather {
@@ -28,4 +29,5 @@ body {
   width: 100%;
 }
    
+
 
