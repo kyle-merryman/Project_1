@@ -1,17 +1,33 @@
 html,
 body {
-    padding: 1%;
-    height: 100%;
-    background: #bdc3c7;
-    /* fallback for old browsers */
-    background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
-    /* Chrome 10-25, Safari 5.1-6 */
-    background: linear-gradient(to right, #2c3e50, #bdc3c7);
-    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+  height: 100%;
+  background: #bdc3c7;
+  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to right, #2c3e50, #bdc3c7);
+  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to right, #2c3e50, #bdc3c7);
+  /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
 
+.container-fluid {
+  padding: 10px;
 }
 
 .custom-brand {
+
     width: 200px;
     height: auto;
 }
+
+.body-right-weather {
+  text-align: center;
+}
+
+#map {
+  padding: 10px;
+  height: 500px;
+  width: 100%;
+}
+   
+
+
