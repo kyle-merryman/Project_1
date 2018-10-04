@@ -16,7 +16,12 @@ body {
     height: auto;
 }
 
+.body-right-weather {
+  text-align: center;
+}
+
 #map {
     height: 100px;
     width: 40%;
 }
+
