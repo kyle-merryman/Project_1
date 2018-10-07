@@ -37,16 +37,56 @@
 
         <!-- THIS IS OUR BODY -->
         <div class="body">
+            <div class="row">
 
+                <button type="button" class="btn btn-info btn-lg mb-2" data-toggle="modal" data-target="#myModal">Open Modal</button>
+                <!-- Modal -->
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                    
+                        <!-- Modal content-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add Event</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                    <div class="form-group">
+                                        <label for="name">Title</label>
+                                        <input type="text" class="form-control" id="modal-name" placeholder="Steve Jobs">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="event">Start Date</label>
+                                        <input type="date" class="form-control" id="modal-start" placeholder="YYYY/MM/DD">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="date">End Date</label>
+                                        <input type="date" class="form-control" id="modal-end" placeholder="YYYY/MM/DD">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="time">URL</label>
+                                        <input type="url" class="form-control" id="modal-url" placeholder="https://www.google.com">
+                                    </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" id="modal-add-event" class="btn btn-default" data-dismiss="modal">ADD EVENT</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
             <div class="row">
 
                 <!-- THIS IS OUR CALENDER -->
-                <div class="body-calendar col-lg-7">
+                <div class="body-calendar col-lg-8">
                     <div id='calendar'></div>
                 </div>     
 
                 <!-- THIS IS OUR RIGHT SIDE OF BODY -->
-                <div class="col-lg-5">
+                <div class="col-lg-4">
 
                     <!-- THIS IS THE MAP ON OUR RIGHT SIDE -->
                     <div class="body-right-map">
