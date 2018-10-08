@@ -31,7 +31,7 @@ $('#modal-add-event').click(function(event){
 });
 
 database.ref('/calendarEvents/').on("value", function(snapshot) {
-
+    var objectModel = snapshot.val();
     for (item in objectModel){
 
         Events.push(objectModel[item]);
