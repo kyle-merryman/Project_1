@@ -20,6 +20,7 @@ $('#modal-add-event').click(function(event){
     var firebaseEventEnd = $('#modal-end').val();
     var firebaseUrl = $('#modal-url').val();
 
+
     var postData = {
         title:firebaseTitle,
         start:firebaseEventStart,
@@ -28,16 +29,13 @@ $('#modal-add-event').click(function(event){
     };
 
     database.ref('/calendarEvents/').push(postData);
+
+    
+
 });
 
-database.ref('/calendarEvents/').on("value", function(snapshot) {
-    var objectModel = snapshot.val();
-    for (item in objectModel){
-
-        Events.push(objectModel[item]);
-        
-    }
-    CalendarHelper();
+database.ref('/calendarEvents/').on("child_added", function(snapshot) {
+    $('#calendar').fullCalendar('renderEvent', snapshot.val());
 
 }, function(errorObject) {
     console.log("The read failed: " + errorObject.code);
