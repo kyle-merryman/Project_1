@@ -29,6 +29,75 @@
         <!-- THIS IS OUR NAVIGATION -->
         <nav class="navbar bg-transparent">
             <img src="images/banner.png" alt="Banner" />
+
+            <!-- THIS IS OUR LOGIN SIGNUP FORM -->
+            <div id="auth">
+
+                <!-- LOGIN -->
+                <button type="button" class="btn btn-info btn-lg mb-2" data-toggle="modal" data-target="#Login">Login</button>
+                <div class="modal fade" id="Login" role="dialog">
+                    <div class="modal-dialog">                           
+                        <!-- Modal content of login-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Login</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="modal-name">Username</label>
+                                    <input type="text" class="form-control" id="modal-loginuser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-name">Password</label>
+                                    <input type="password" class="form-control" id="modal-loginpassword">
+                                </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" id="modal-login" class="btn btn-default" data-dismiss="modal">Login</button>
+                            </div>
+                        </div>                           
+                    </div>
+                </div>
+
+                <!-- SIGNUP -->
+                <button type="button" class="btn btn-info btn-lg mb-2" data-toggle="modal" data-target="#Signup" id="Signup-button-modal">Signup</button>
+                <div class="modal fade" id="Signup" role="dialog">
+                    <div class="modal-dialog">                           
+                        <!-- Modal content of signup-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Sign Up</h4>
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                <div class="form-group">
+                                    <label for="modal-name">E-mail</label>
+                                    <input type="email" class="form-control" id="modal-signupemail">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-name">Username</label>
+                                    <input type="text" class="form-control" id="modal-signupuser">
+                                </div>
+                                <div class="form-group">
+                                    <label for="modal-name">Password</label>
+                                    <input type="password" class="form-control" id="modal-signuppassword">
+                                </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" id="modal-signup" class="btn btn-default" data-dismiss="modal">Sign Up</button>
+                            </div>
+                        </div>                           
+                    </div>
+                </div>
+
+            </div>
+            
+            <!-- THIS IS OUR ZIPCODE API SEARCH -->
             <form class="form-inline">
                 <input class="form-control-lg mr-sm-2" id="zipInput" type="search" placeholder="Enter Zipcode" aria-label="Search">
                 <button class="btn-lg btn-secondary my-2 my-sm-0" id="zipSearch" type="submit">Submit</button>
@@ -37,16 +106,60 @@
 
         <!-- THIS IS OUR BODY -->
         <div class="body">
+            <div class="row">
 
+                <!-- ADD EVENT -->
+                <button type="button" class="btn btn-info btn-lg mb-2" data-toggle="modal" data-target="#myModal">Add Event</button>
+                <div class="modal fade" id="myModal" role="dialog">
+                    <div class="modal-dialog">
+                    
+                        <!-- Modal content of add event-->
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h4 class="modal-title">Add</h4>
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                            </div>
+                            <div class="modal-body">
+                            <form>
+                                    <div class="form-group">
+                                        <label for="modal-name">Title</label>
+                                        <input type="text" class="form-control" id="modal-name" placeholder="Steve Jobs">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modal-start">Start Date</label>
+                                        <input type="date" class="form-control" id="modal-start" placeholder="YYYY/MM/DD">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modal-end">End Date</label>
+                                        <input type="date" class="form-control" id="modal-end" placeholder="YYYY/MM/DD">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modal-url">URL</label>
+                                        <input type="url" class="form-control" id="modal-url" placeholder="https://www.google.com">
+                                    </div>
+                                    <div class="form-group">
+                                        <label for="modal-address">Address</label>
+                                        <input type="text" class="form-control" id="modal-address" placeholder="Address">
+                                    </div>
+                            </form>
+                            </div>
+                            <div class="modal-footer">
+                            <button type="button" id="modal-add-event" class="btn btn-default" data-dismiss="modal">ADD EVENT</button>
+                            </div>
+                        </div>
+                    
+                    </div>
+                </div>
+            </div>
             <div class="row">
 
                 <!-- THIS IS OUR CALENDER -->
-                <div class="body-calendar col-lg-7">
+                <div class="body-calendar col-lg-8">
                     <div id='calendar'></div>
                 </div>     
 
                 <!-- THIS IS OUR RIGHT SIDE OF BODY -->
-                <div class="col-lg-5">
+                <div class="col-lg-4">
 
                     <!-- THIS IS THE MAP ON OUR RIGHT SIDE -->
                     <div class="body-right-map">
@@ -81,8 +194,8 @@
     <link rel='stylesheet' href='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.3/mapbox-gl-directions.css'
         type='text/css' />
     <script src='https://api.mapbox.com/mapbox-gl-js/plugins/mapbox-gl-directions/v3.1.3/mapbox-gl-directions.js'></script>
-    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <script src='https://api.tiles.mapbox.com/mapbox-gl-js/v0.49.0/mapbox-gl.js'></script>
+    <script src="https://www.gstatic.com/firebasejs/5.5.2/firebase.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49"
         crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.22.2/moment.min.js"></script>

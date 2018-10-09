@@ -1,30 +1,27 @@
 $(document).ready($(function() {
+    CalendarHelper();
+}));
 
-    // page is now ready, initialize the calendar...
-  
+function CalendarHelper() {
     $('#calendar').fullCalendar({
-        editable: true, 
-        header:{
-          left: 'prev,next today',
-          center: 'title',
-          right: 'month,agendaWeek,agendaDay'
-        },
-        event: 'load.php',
+      editable: true, 
+      header:{
+        left: 'prev,next today',
+        center: 'title',
+        right: 'month,agendaWeek,agendaDay'
+      }, 
+      // events: Events,
+      renderEvent: true,
+      navLinks: true,
+      eventLimit: true, // for all non-agenda views
+      views: {
+        agenda: {
+          eventLimit: 3 // adjust to 6 only for agendaWeek/agendaDay
+        }
+      },
+      editable: true,
     });
-    
-  
-  }));
+}
 
-  // Initialize Firebase
-  var config = {
-    apiKey: "AIzaSyB38HE7Q8jr7CmRQolpUM87wuoXE1jZBi0",
-    authDomain: "forecast-test-30b06.firebaseapp.com",
-    databaseURL: "https://forecast-test-30b06.firebaseio.com",
-    projectId: "forecast-test-30b06",
-    storageBucket: "",
-    messagingSenderId: "218000094980"
-};
-firebase.initializeApp(config);
 
-// $data = array();
 
