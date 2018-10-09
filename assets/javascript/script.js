@@ -14,7 +14,6 @@ var userIsLoggedIn = false;
 
 // ----------------------------- CALENDER START------------------------------------------------
 $('#modal-add-event').click(function(event){
-    // if (userIsLoggedIn){
         event.preventDefault();
     
         // obtain value from add event modal
@@ -32,11 +31,16 @@ $('#modal-add-event').click(function(event){
             address: firebaseAddress,
         };
         database.ref('/calendarEvents/').push(postData);
-    // } else {
-    //     $('.close').trigger('click');
-    //     $('#Signup-button-modal').trigger('click');
-    // }
 });
+$('#addEventModalOpen').click(function(event){
+    event.preventDefault();
+    if(userIsLoggedIn){
+        $('#addEventModalOpen')[0].dataset.target = "#myModal";
+    } else {
+        $('#addEventModalOpen')[0].dataset.target = "";
+        $('#Signup-button-modal').trigger('click');
+    }
+})
 
 // obtain data from Firebase and plot data on fullcalendar
 database.ref('/calendarEvents/').on("child_added", function(snapshot) {
@@ -72,13 +76,19 @@ $('#modal-login').click(function(event){
     var loginUsername = $('#modal-loginuser').val();
     var loginPassword = $('#modal-loginpassword').val()
 
-    database.ref('/accounts/').on("child_added", function(snapshot) {
-        var fireBaseAccount = snapshot.val();
-        if (fireBaseAccount.username === loginUsername && fireBaseAccount.password === loginPassword){
-            userIsLoggedIn = true;
-        } else {
-            console.log('stop it');
+    database.ref('/accounts/').on("value", function(snapshot) {
+        var showShouldLogIn = true;
+        for (var account in snapshot.val()){
+            var fireBaseAccount = snapshot.val()[account];
+            if (fireBaseAccount.username === loginUsername && fireBaseAccount.password === loginPassword){
+                userIsLoggedIn = true;
+                return;
+            } 
         }
+        if (showShouldLogIn) {
+            console.log('please log in');
+        }
+        
     }, function(errorObject) {
         console.log("The read failed: " + errorObject.code);
     });
