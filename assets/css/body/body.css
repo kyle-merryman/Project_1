@@ -10,11 +10,6 @@
   padding: 1%;
 }
 
-.body-right-weather {
-  text-align: center;
-  margin-top: 10px;
-}
-
 img {
   max-width: 100%;
   height: auto;
@@ -27,4 +22,10 @@ img {
 .body-right-weather {
   color: #fff;
   text-shadow: 2px 2px 4px #000;
+  text-align: center;
+  margin-top: 10px;
+}
+
+.fc-today {
+  background-color: #ccc !important;
 }
