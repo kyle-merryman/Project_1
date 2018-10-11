@@ -83,6 +83,78 @@ $("#modal-add-event").click(function(event) {
   // }
 });
 
+// Update Event
+$("#modal-update").click(function(event) {
+  // if (userIsLoggedIn){
+  event.preventDefault();
+
+  // obtain value from add event modal
+  var firebaseTitle = $("#modal-name").val();
+  var firebaseEventStart = $("#modal-start").val();
+  var firebaseEventEnd = $("#modal-end").val();
+  var firebaseUrl = $("#modal-url").val();
+  var firebaseAddress = $("#modal-address").val();
+  //use zipcode in form to access weather API later on
+  var firebaseZipcode = $("#modal-zipcode")
+    .val()
+    .trim();
+
+  var postData = {
+    title: firebaseTitle,
+    start: firebaseEventStart,
+    end: firebaseEventEnd,
+    url: firebaseUrl,
+    address: firebaseAddress,
+    zipcode: firebaseZipcode
+  };
+  database.ref("/calendarEvents/").update(postData);
+  // $("#calendar").fullCalendar("refetchEvents");
+  // $("#calendar").fullCalendar("removeEvents", idOrFilter);
+  // //define eventWeather child in format like postData
+  // var eventWeather = {
+  //   title: "",
+  //   high: "",
+  //   low: "",
+  //   description: "",
+  //   icon: "",
+  //   date: "",
+  //   wind: ""
+  // };
+
+  // //access weather database - use apiKey && firebaseZipcode
+  // var APIKey = "166a433c57516f51dfab1f7edaed8413";
+  // var weatherURL =
+  //   "https://api.openweathermap.org/data/2.5/forecast/daily?zip=" +
+  //   firebaseZipcode +
+  //   ",us&units=imperial&cnt=7&appid=" +
+  //   APIKey;
+
+  // //ajax call
+  // $.ajax({
+  //   url: weatherURL,
+  //   method: "GET"
+  // }).then(function(response) {
+  //   //define each child in eventWeather object
+  //   $(eventWeather.title).append(firebaseTitle + " weather forecast");
+  //   $(eventWeather.high).append(response.list[i].temp.max);
+  //   $(eventWeather.low).append(response.list[i].temp.min);
+  //   $(eventWeather.description).append(response.list.weather[i].description);
+  //   $(eventWeather.icon).append(response.list[i].weather[0].icon);
+  //   $(eventWeather.date).append(
+  //     moment.unix(response.list[i].dt).format("ddd, MMM D")
+  //   );
+  //   $(eventWeather.wind).append(response.list[i].speed);
+  // });
+
+  // //push to "this" event as it is created
+  // database.ref("/calendarEvents/postData/").set(eventWeather);
+
+  // } else {
+  //     $('.close').trigger('click');
+  //     $('#Signup-button-modal').trigger('click');
+  // }
+});
+
 // obtain data from Firebase and plot data on fullcalendar
 database.ref("/calendarEvents/").on(
   "child_added",
@@ -93,6 +165,16 @@ database.ref("/calendarEvents/").on(
     console.log("The read failed: " + errorObject.code);
   }
 );
+
+// database.ref("/calendarEvents/").on(
+//   "child_changed",
+//   function(snapshot) {
+//     $("#calendar").fullCalendar("renderEvent", snapshot.val());
+//   },
+//   function(errorObject) {
+//     console.log("The read failed: " + errorObject.code);
+//   }
+// );
 
 // ----------------------------- CALENDER END------------------------------------------------
 

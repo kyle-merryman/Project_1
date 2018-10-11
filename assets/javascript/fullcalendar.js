@@ -33,6 +33,8 @@ function CalendarHelper() {
         $("#modal-end").val(moment(event.end).format());
         $("#modal-address").val(event.address);
         $("#modal-url").attr("href", event.url);
+        $("#modal-update").show();
+        $("#modal-add-event").hide();
       });
     }
   });
